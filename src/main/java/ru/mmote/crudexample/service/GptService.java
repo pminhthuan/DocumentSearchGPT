@@ -12,8 +12,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class GptService {
 
+    private final RestTemplate restTemplate;
+
     @Autowired
-    private RestTemplate restTemplate;
+    public GptService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Value("${server.url}")
     private String serverUrl;
