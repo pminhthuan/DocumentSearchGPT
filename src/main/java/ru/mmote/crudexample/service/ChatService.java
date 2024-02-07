@@ -8,7 +8,7 @@ import ru.mmote.crudexample.entity.Interaction;
 public class ChatService {
 
     @Autowired
-    private GPTService gptService;
+    private GptService gptService;
 
     @Autowired
     private InteractionService interactionService;

@@ -5,15 +5,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.mmote.crudexample.service.ChatService;
+import ru.mmote.crudexample.service.GptService;
 
 @RestController
 public class ChatController {
 
     @Autowired
-    private ChatService chatService;
+    private GptService gptService;
 
     @PostMapping("/chat")
     public String chat(@RequestBody String question) {
-        return chatService.getResponse(question);
+        // Xử lý tin nhắn từ người dùng và nhận phản hồi từ bot
+        String botResponse = gptService.generateResponse(question);
+
+        // Trả về phản hồi từ bot
+        return botResponse;
     }
 }
